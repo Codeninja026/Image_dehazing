@@ -52,8 +52,8 @@ from eca_ldnet.data import (  # noqa: E402
 from eca_ldnet.metrics import lpips_available, lpips_distance, ms_ssim, psnr, ssim  # noqa: E402
 
 VARIANTS = [
-    ("Full (ECA+PA+Physics)", dict()),
-    ("w/o ECA", dict(use_eca=False)),
+    ## ("Full (ECA+PA+Physics)", dict()),
+    ## ("w/o ECA", dict(use_eca=False)),
     ("w/o Pixel Attention", dict(use_pa=False)),
     ("w/o Physics guidance", dict(use_physics=False)),
     ("w/o all attention", dict(use_eca=False, use_pa=False)),
@@ -217,7 +217,7 @@ def _train_one(flags, tr, va, epochs, batch, out_dir, label, resume_path=None, r
         train_ds,
         validation_data=val_ds,
         epochs=epochs,
-        initial_epoch=35,#################################################################################################
+        initial_epoch=0,#################################################################################################
         verbose=2,
         callbacks=[ckpt_cb],
     )
