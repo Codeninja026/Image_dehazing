@@ -217,7 +217,7 @@ def _train_one(flags, tr, va, epochs, batch, out_dir, label, resume_path=None, r
         train_ds,
         validation_data=val_ds,
         epochs=epochs,
-        initial_epoch=35,#################################################################################################
+        initial_epoch=0,#################################################################################################
         verbose=2,
         callbacks=[ckpt_cb],
     )
