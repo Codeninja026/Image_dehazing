@@ -161,27 +161,28 @@ def _train_one(flags, tr, va, epochs, batch, out_dir, label, resume_path=None, r
     steps = max(1, len(tr[0]) // batch)
     lr = WarmupCosineDecay(C.LR_S1, 3 * steps, epochs * steps)
 
-    # <<< ADDED FOR CONTINUATION >>>
     # Resume only the Full model from a saved checkpoint.
     if label == "Full (ECA+PA+Physics)" and resume_path is not None:
         resume_path = _resolve_existing_path(resume_path)
 
     if label == "Full (ECA+PA+Physics)" and resume_path is not None:
-        print(f"\nLoading checkpoint for continuation: {resume_path}")
-        model = tf.keras.models.load_model(
-            resume_path,
-            custom_objects={
-                "combined_loss": combined_loss,
-                "mae_metric": mae_metric,
-                "psnr_metric": psnr_metric,
-                "ssim_metric": ssim_metric,
-            },
-            compile=False,
+        print(f"\nLoading checkpoint weights for continuation: {resume_path}")
+
+        # Build architecture first
+        model = build_eca_ldnet(
+            name="ablation",
+            **flags
         )
+
+        # Load weights only
+        model.load_weights(resume_path)
+
+        print("Checkpoint weights loaded successfully.")
     else:
         print(f"\nCreating fresh model for: {label}")
         model = build_eca_ldnet(name="ablation", **flags)
 
+    # Compile for BOTH cases
     model.compile(
         optimizer=tf.keras.optimizers.AdamW(learning_rate=lr, weight_decay=1e-4),
         loss=combined_loss,
@@ -209,7 +210,7 @@ def _train_one(flags, tr, va, epochs, batch, out_dir, label, resume_path=None, r
         save_freq=7 * steps,
     )
 
-    # <<< ADDED FOR CONTINUATION >>>
+    # Start from resume epoch only for the Full model
     initial_epoch = resume_epoch if (label == "Full (ECA+PA+Physics)" and resume_path is not None) else 0
 
     model.fit(
@@ -235,13 +236,12 @@ def main():
     p.add_argument("--pretrained", default=None, help="release .keras to eval with perceptual metrics")
     p.add_argument("--out", default="./ablation_out")
 
-    # <<< ADDED FOR CONTINUATION >>>
+    # Continuation settings for the Full model
     p.add_argument(
         "--resume",
         default="Full_(ECA+PA+Physics)_epoch_28.keras",
         help="checkpoint to continue the Full model from",
     )
-    # <<< ADDED FOR CONTINUATION >>>
     p.add_argument(
         "--resume-epoch",
         type=int,
