@@ -1,0 +1,13 @@
+# Core deep-learning stack (training + inference)
+tensorflow>=2.16,<2.20
+# Keras >= 3.9 is required to deserialize the released .keras checkpoints
+# (older Keras 3 versions reject the serialized `quantization_config` field).
+keras>=3.9
+numpy>=1.23,<2.0
+opencv-python>=4.6
+scikit-learn>=1.1
+pandas>=1.5
+matplotlib>=3.6
+
+# Testing
+pytest>=7.0

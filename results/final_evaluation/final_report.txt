@@ -1,0 +1,71 @@
+════════════════════════════════════════════════════════════
+GENERATING VISUAL COMPARISONS...	
+════════════════════════════════════════════════════════════
+Visual comparison saved: ./test_results/plots/visual_reside6k.png
+Visual comparison saved: ./test_results/plots/visual_sots_indoor.png
+Visual comparison saved: ./test_results/plots/visual_sots_outdoor.png
+Error heatmaps saved: ./test_results/plots/error_heatmap_r6k.png
+Pixel distribution saved: ./test_results/plots/pixel_distribution.png
+Training curves saved: ./test_results/plots/training_curves.png
+════════════════════════════════════════════════════════════
+══════════════════════════════
+COMPARISON TABLE — RESIDE SOTS Indoor Benchmark
+════════════════════════════════════════════════════════════
+══════════════════════════════
+Method                 Year   Attention                     PSNR    SSIM   Params
+────────────────────────────────────────────────────────────
+DCP (He et al.)        2009   None                          16.62   0.8180     —
+DehazeNet              2016   None                          21.14   0.8470  0.009M
+MSCNN                  2016   None                          17.57   0.8100  0.008M
+AOD-Net                2017   None                          19.06   0.8500  0.002M
+GFN                    2018   None                          21.55   0.8440  0.530M
+GridDehazeNet          2019   Attention                     32.16   0.9840  0.956M
+FFA-Net                2020   CBAM (Channel+Pixel)          36.39   0.9890  4.456M
+DehazeFormer-S         2023   Coordinate Attention          30.29   0.9660  1.283M
+DehazeFormer-B         2023   Coordinate Attention          33.26   0.9830 25.440M
+DehazeFormer-L         2023   Coordinate Attention          34.77   0.9870 25.440M
+ECA-LDNet (Ours)       2026   ECA + PixelAttention          32.53   0.9717  1.482M ★
+════════════════════════════════════════════════════════════
+══════════════════════════════
+ABLATION STUDY SUMMARY — ECA-LDNet Components
+════════════════════════════════════════════════════════════
+Component                      Contribution
+────────────────────────────────────────────────────────────
+ECA (Channel Attention)        Channel-wise feature recalibration
+PixelAttention (Spatial)       Spatial focus on hazy regions
+Physics Correction Layer       ASM-guided refinement (J=I-A/t+A)
+Depthwise Separable Conv       Param efficiency (1.48M total)
+VGG Perceptual Loss            Feature-level quality matching
+Multi-Stage Training           Progressive refinement S1→S2→S3
+Charbonnier + Edge + FFT Loss  Robust pixel + frequency learning
+════════════════════════════════════════════════════════════
+══════════════════════════════
+ECA-LDNet RESULTS ON ALL BENCHMARKS
+════════════════════════════════════════════════════════════
+SOTS Indoor  : PSNR=32.5272 dB  SSIM=0.9717
+SOTS Outdoor : PSNR=31.9351 dB  SSIM=0.9769
+RESIDE-6K    : PSNR=30.2035 dB    SSIM=0.9641
+Parameters   : 1,481,871 (1.482M)
+════════════════════════════════════════════════════════════
+
+LATENCY & SPEED CHECK
+========================================
+Params : 1.482 M
+MACs   : 97.116 G
+Latency: 81.75 ms / image
+Speed  : 12.23 FPS (Fast enough for real-time)
+Comparison table saved: ./test_results/csv/comparison_table.csv
+Final report saved: ./test_results/final_report.txt
+
+════════════════════════════════════════════════════════════
+═════════════════════════════════════
+ALL TESTS COMPLETE — ECA-LDNet
+════════════════════════════════════════════════════════════
+Model       : 1,481,871 params (1.482M)
+Latency     : 72.3 ms (13.8 FPS)
+RESIDE-6K   : PSNR=30.2035 dB  SSIM=0.9641
+SOTS Indoor : PSNR=32.5272 dB  SSIM=0.9717
+SOTS Outdoor: PSNR=31.9351 dB  SSIM=0.9769
+Results saved to: ./final_model_summary/
+════════════════════════════════════════════════════════════
+TESTING COMPLETE ✓

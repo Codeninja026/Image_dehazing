@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "ECA-LDNet: Efficient Channel-Attention Lightweight Dehazing Network"
+authors:
+  - family-names: "Reddy"
+    given-names: "Rohith"
+version: 1.0.0
+date-released: 2026-06-13
+license: MIT
+repository-code: "https://github.com/manpreet28111995/Image-Dehazing-using-ECA-LDNet"
+keywords:
+  - image dehazing
+  - efficient channel attention
+  - pixel attention
+  - physics-guided
+  - tensorflow

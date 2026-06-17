@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eca-ldnet"
+version = "1.0.0"
+description = "ECA-LDNet: an efficient, physics-guided, dual-attention single-image dehazing network (1.48M params)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "Rohith Reddy" }]
+keywords = ["image-dehazing", "deep-learning", "attention", "tensorflow", "keras", "RESIDE"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Image Processing",
+]
+dependencies = [
+    "tensorflow>=2.16,<2.20",
+    "keras>=3.9",
+    "numpy>=1.23,<2.0",
+    "opencv-python>=4.6",
+    "scikit-learn>=1.1",
+    "pandas>=1.5",
+    "matplotlib>=3.6",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+eca-ldnet-train = "eca_ldnet.train:main"
+eca-ldnet-eval = "eca_ldnet.evaluate:main"
+eca-ldnet-dehaze = "eca_ldnet.inference:main"
+
+[tool.setuptools]
+packages = ["eca_ldnet"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

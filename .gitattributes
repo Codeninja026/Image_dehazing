@@ -1,0 +1,19 @@
+# Normalize line endings: text files stored as LF in the repo.
+* text=auto eol=lf
+
+# Explicitly treat source/config as text.
+*.py    text eol=lf
+*.md    text eol=lf
+*.txt   text eol=lf
+*.toml  text eol=lf
+*.cff   text eol=lf
+*.yml   text eol=lf
+*.csv   text eol=lf
+
+# Binary assets — never alter.
+*.keras binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.docx  binary
+*.ipynb binary

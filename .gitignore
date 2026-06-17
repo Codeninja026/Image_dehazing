@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Testing / tooling
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Training runs & outputs (regenerated; do not commit)
+runs/
+eval_out/
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local scratch dumps
+dump_*.txt
+arch_dump.txt
