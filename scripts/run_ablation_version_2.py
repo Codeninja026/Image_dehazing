@@ -217,7 +217,7 @@ def _train_one(flags, tr, va, epochs, batch, out_dir, label, resume_path=None, r
         train_ds,
         validation_data=val_ds,
         epochs=epochs,
-        initial_epoch=initial_epoch,
+        initial_epoch=35,#################################################################################################
         verbose=2,
         callbacks=[ckpt_cb],
     )
@@ -239,7 +239,7 @@ def main():
     # Continuation settings for the Full model
     p.add_argument(
         "--resume",
-        default="Full_(ECA+PA+Physics)_epoch_28.keras",
+        default="Full_(ECA+PA+Physics)_epoch_35.keras", ##################################################################
         help="checkpoint to continue the Full model from",
     )
     p.add_argument(
