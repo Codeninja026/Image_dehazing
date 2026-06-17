@@ -52,9 +52,9 @@ from eca_ldnet.data import (  # noqa: E402
 from eca_ldnet.metrics import lpips_available, lpips_distance, ms_ssim, psnr, ssim  # noqa: E402
 
 VARIANTS = [
-    ("Full (ECA+PA+Physics)", dict()),
-    ("w/o ECA", dict(use_eca=False)),
-    ("w/o Pixel Attention", dict(use_pa=False)),
+    # ("Full (ECA+PA+Physics)", dict()),
+    # ("w/o ECA", dict(use_eca=False)),
+    # ("w/o Pixel Attention", dict(use_pa=False)),
     ("w/o Physics guidance", dict(use_physics=False)),
     ("w/o all attention", dict(use_eca=False, use_pa=False)),
 ]
