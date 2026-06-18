@@ -49,7 +49,7 @@ ITS_BASE = "/kaggle/input/datasets/balraj98/indoor-training-set-its-residestanda
 SOTS_BASE = "/kaggle/input/datasets/balraj98/synthetic-objective-testing-set-sots-reside"
 
 # Folder that contains the 5 model files from your screenshot
-MODELS_ROOT = "/kaggle/input/models/codeninjalucky/all-ablation-models/tensorflow2/default/1"
+MODELS_ROOT = "/kaggle/input/models/lucky02655/all-ablation-models/tensorflow2/default/1"
 
 OUT_DIR = "/kaggle/working/ablation_out"
 
