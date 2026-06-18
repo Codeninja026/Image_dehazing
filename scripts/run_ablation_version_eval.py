@@ -49,19 +49,19 @@ ITS_BASE = "/kaggle/input/datasets/balraj98/indoor-training-set-its-residestanda
 SOTS_BASE = "/kaggle/input/datasets/balraj98/synthetic-objective-testing-set-sots-reside"
 
 # Folder that contains the 5 model files from your screenshot
-MODELS_ROOT = "/kaggle/input/all_ablation_models"
+MODELS_ROOT = "/kaggle/input/models/codeninjalucky/all-ablation-models/tensorflow2/default/1"
 
 OUT_DIR = "/kaggle/working/ablation_out"
 
 MODEL_SPECS = [
     {
         "variant": "Full (ECA+PA+Physics)",
-        "filename": "Full_(ECA+PA+Physics)_epoch_28.keras",
+        "filename": "._Full_(ECAPAPhysics)_epoch_28.keras",
         "flags": dict(),
     },
     {
         "variant": "w/o ECA",
-        "filename": "w_o_ECA_epoch_28.keras",
+        "filename": "._w_o_ECA_epoch_28.keras",
         "flags": dict(use_eca=False),
     },
     {
