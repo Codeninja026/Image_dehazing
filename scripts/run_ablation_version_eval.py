@@ -56,12 +56,12 @@ OUT_DIR = "/kaggle/working/ablation_out"
 MODEL_SPECS = [
     {
         "variant": "Full (ECA+PA+Physics)",
-        "filename": "._Full_(ECAPAPhysics)_epoch_28.keras",
+        "filename": "Full_(ECAPAPhysics)_epoch_28.keras",
         "flags": dict(),
     },
     {
         "variant": "w/o ECA",
-        "filename": "._w_o_ECA_epoch_28.keras",
+        "filename": "w_o_ECA_epoch_28.keras",
         "flags": dict(use_eca=False),
     },
     {
